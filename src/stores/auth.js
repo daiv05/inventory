@@ -5,7 +5,7 @@ import { useStorage } from '@vueuse/core'
 import alertToast from '@/plugins/notification'
 import { jwtDecode } from 'jwt-decode'
 
-const baseUrl = `${import.meta.env.VITE_BASE_API_URL}`
+// const baseUrl = `${import.meta.env.VITE_BASE_API_URL}`
 
 export const useAuthStore = defineStore('auth', () => {
   const user = useStorage('user', {})
@@ -19,7 +19,8 @@ export const useAuthStore = defineStore('auth', () => {
     setLoading(true)
     user.value = {
       username: username,
-      email: username + '@example.com'
+      email: username + '@example.com',
+      password: password
     }
     token.value = 'fakeToken'
     refreshToken.value = 'fakeRefreshToken'

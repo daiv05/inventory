@@ -41,7 +41,7 @@ export default defineConfig({
           {
             name: 'Montserrat Variable',
             variable: {
-              wght: true,
+              wght: true
             },
             subset: 'latin'
           }

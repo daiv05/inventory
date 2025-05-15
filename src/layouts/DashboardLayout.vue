@@ -38,7 +38,7 @@ import { storeToRefs } from 'pinia'
 import { onErrorCaptured } from 'vue'
 const { miniSidebar } = storeToRefs(useAppStore())
 const errorCaptured = ref([])
-onErrorCaptured((error, ins, info) => {
+onErrorCaptured((error) => {
   errorCaptured.value.push({
     error
   })

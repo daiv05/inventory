@@ -12,7 +12,10 @@ export default [
   {
     name: 'app/rules-override',
     rules: {
-      'no-unused-vars': ['error', { varsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_', argsIgnorePattern: '^_' }],
+      'no-unused-vars': [
+        'error',
+        { varsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_', argsIgnorePattern: '^_' }
+      ],
       'vue/valid-v-slot': [
         'error',
         {
@@ -33,6 +36,8 @@ export default [
   skipFormatting,
   // GLOBALS
   {
-    languageOptions: { globals: { ...globals.browser, ...globals.node, ...eslintrcImport.globals } }
+    languageOptions: {
+      globals: { ...globals.browser, ...globals.node, ...eslintrcImport.globals }
+    }
   }
 ]

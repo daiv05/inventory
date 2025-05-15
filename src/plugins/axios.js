@@ -25,7 +25,7 @@ _axios.interceptors.response.use(
   (response) => response,
   async (error) => {
     const { token, refreshToken, setAuthData } = useAuthStore()
-    const { response, request, message } = error
+    const { response, request, _message } = error
     let alertErrorText = ':('
     if (response) {
       if (response.status >= 500) {
@@ -54,7 +54,7 @@ _axios.interceptors.response.use(
             response.config.headers['Authorization'] = 'Bearer ' + newToken
             return _axios(response.config)
           }
-        } catch (error) {
+        } catch (_error) {
           router.push('/login')
           alertErrorText = 'Sesión expirada, por favor inicie sesión nuevamente'
         }

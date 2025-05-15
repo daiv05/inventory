@@ -13,19 +13,19 @@ const cats = ref([])
 const animals = ref([])
 const alertToast = inject('alertToast')
 
-const loadCats = async () => {
-  const { data, error } = await catServices.getCatAllData()
-  if (data) {
-    cats.value = data
-    alertToast({
-      title: 'Cats loaded',
-      text: 'Cats loaded successfully!'
-    })
-  }
-  if (error) {
-    console.error('Error: ', error)
-  }
-}
+// const loadCats = async () => {
+//   const { data, error } = await catServices.getCatAllData()
+//   if (data) {
+//     cats.value = data
+//     alertToast({
+//       title: 'Cats loaded',
+//       text: 'Cats loaded successfully!'
+//     })
+//   }
+//   if (error) {
+//     console.error('Error: ', error)
+//   }
+// }
 
 const loadAnimals = async () => {
   const { data, error } = await catServices.getAnimals({ type: 'dog' })
