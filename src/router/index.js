@@ -1,9 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { useAuthStore } from '@/stores/auth.store.js'
 
-import routerUtilitiesPages from '@/pages/template-example/utilities-pages/router.js'
-import routerPluginPages from '@/pages/template-example/plugin-pages/router.js'
-
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 const router = createRouter({
@@ -19,8 +16,6 @@ const router = createRouter({
           name: 'inicio',
           component: () => import('../pages/InicioPage.vue')
         },
-        // ...routerUtilitiesPages,
-        // ...routerPluginPages,
         {
           path: '/:pathMatch(.*)*',
           name: 'not-found',
