@@ -33,7 +33,8 @@ export default defineConfig({
         IconsResolver({
           prefix: 'icon'
         })
-      ]
+      ],
+      dts: false,
     }),
     Unfonts({
       fontsource: {
@@ -61,7 +62,8 @@ export default defineConfig({
       eslintrc: {
         enabled: true
       },
-      vueTemplate: true
+      vueTemplate: true,
+      dts: false,
     }),
     Icons()
   ],

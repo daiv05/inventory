@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { useAuthStore } from '@/stores/auth.js'
+import { useAuthStore } from '@/stores/auth.store.js'
 
 import routerUtilitiesPages from '@/pages/template-example/utilities-pages/router.js'
 import routerPluginPages from '@/pages/template-example/plugin-pages/router.js'
@@ -15,17 +15,12 @@ const router = createRouter({
       component: () => import('../layouts/DashboardLayout.vue'),
       children: [
         {
-          path: '/login',
-          name: 'login',
-          component: () => import('../pages/LoginView.vue')
-        },
-        {
           path: '/inicio',
           name: 'inicio',
-          component: () => import('../pages/template-example/WelcomePage.vue')
+          component: () => import('../pages/InicioPage.vue')
         },
-        ...routerUtilitiesPages,
-        ...routerPluginPages,
+        // ...routerUtilitiesPages,
+        // ...routerPluginPages,
         {
           path: '/:pathMatch(.*)*',
           name: 'not-found',
@@ -34,14 +29,19 @@ const router = createRouter({
       ]
     },
     {
-      path: '/m',
+      path: '/',
       name: 'main',
       component: () => import('../layouts/MainLayout.vue'),
       children: [
         {
-          path: '/index-view',
-          name: 'indexView',
-          component: () => import('../pages/IndexView.vue')
+          path: '/login',
+          name: 'login',
+          component: () => import('../pages/auth/LoginView.vue')
+        },
+        {
+          path: '/:pathMatch(.*)*',
+          name: 'not-found',
+          component: () => import('../pages/NotFound.vue')
         }
       ]
     }

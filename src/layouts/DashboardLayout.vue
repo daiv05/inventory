@@ -33,7 +33,7 @@
 </template>
 
 <script setup>
-import { useAppStore } from '@/stores/app'
+import { useAppStore } from '@/stores/app.store'
 import { storeToRefs } from 'pinia'
 import { onErrorCaptured } from 'vue'
 const { miniSidebar } = storeToRefs(useAppStore())

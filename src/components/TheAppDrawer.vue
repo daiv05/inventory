@@ -31,7 +31,7 @@
 </template>
 
 <script setup>
-import { useAppStore } from '@/stores/app'
+import { useAppStore } from '@/stores/app.store'
 import { storeToRefs } from 'pinia'
 import sidebarItems from '../navigation/sidebarItem'
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-vue'

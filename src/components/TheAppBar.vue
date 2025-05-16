@@ -1,6 +1,8 @@
 <script setup>
-import { useAppStore } from '@/stores/app'
+import { useAppStore } from '@/stores/app.store'
+import { useAuthStore } from '@/stores/auth.store'
 const { toggleDrawer, toggleMiniSidebar } = useAppStore()
+const { user } = useAuthStore()
 </script>
 
 <template>
@@ -44,7 +46,7 @@ const { toggleDrawer, toggleMiniSidebar } = useAppStore()
       </template>
     </v-hover>
     <v-spacer />
-    <v-menu :close-on-content-click="false">
+    <!-- <v-menu :close-on-content-click="false">
       <template #activator="{ props }">
         <v-hover>
           <template #default="{ props: propsHover }">
@@ -64,7 +66,7 @@ const { toggleDrawer, toggleMiniSidebar } = useAppStore()
       <v-sheet rounded="lg" width="330" elevation="12">
         <notification-expand />
       </v-sheet>
-    </v-menu>
+    </v-menu> -->
 
     <v-menu :close-on-content-click="false">
       <template #activator="{ props }">
@@ -79,7 +81,7 @@ const { toggleDrawer, toggleMiniSidebar } = useAppStore()
             <v-img src="@/assets/icons/maki.svg" alt="Makima" color="#ffffff" height="200" />
           </v-avatar>
           <span class="text-h6 mr-2 text-secondary font-weight-bold"
-            >Daiv <span class="font-weight-light">DV</span></span
+            >{{ user.username }} <span class="font-weight-light">DV</span></span
           >
           <icon-mdi-chevron-down style="font-size: 19px" />
         </v-btn>

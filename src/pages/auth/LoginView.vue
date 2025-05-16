@@ -34,7 +34,7 @@
 
 <script setup>
 import { ref, inject } from 'vue'
-import { useAuthStore } from '@/stores/auth'
+import { useAuthStore } from '@/stores/auth.store'
 
 const alertToast = inject('alertToast')
 const { login } = useAuthStore()

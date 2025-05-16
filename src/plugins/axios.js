@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useAuthStore } from '@/stores/auth.js'
+import { useAuthStore } from '@/stores/auth.store.js'
 import router from '../router'
 import alertToast from './notification'
 
@@ -24,7 +24,7 @@ _axios.interceptors.request.use(
 _axios.interceptors.response.use(
   (response) => response,
   async (error) => {
-    const { token, refreshToken, setAuthData } = useAuthStore()
+    const { token, setAuthData } = useAuthStore()
     const { response, request, _message } = error
     let alertErrorText = ':('
     if (response) {
@@ -38,10 +38,8 @@ _axios.interceptors.response.use(
       if (response.status === 401) {
         try {
           const responseRefresh = await axios.post(
-            import.meta.env.BASE_API_URL + '/refresh',
-            {
-              refreshToken: refreshToken
-            },
+            `${import.meta.env.VITE_VUE_APP_API_URL}/api` + '/refresh',
+            {},
             {
               headers: {
                 Authorization: 'Bearer ' + token
@@ -49,7 +47,7 @@ _axios.interceptors.response.use(
             }
           )
           if (response.status === 200) {
-            const newToken = responseRefresh.data.token
+            const newToken = responseRefresh.data.accessToken
             setAuthData(newToken)
             response.config.headers['Authorization'] = 'Bearer ' + newToken
             return _axios(response.config)

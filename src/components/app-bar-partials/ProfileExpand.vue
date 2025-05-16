@@ -1,14 +1,16 @@
 <script setup>
-import { useAuthStore } from '@/stores/auth'
+import { useAuthStore } from '@/stores/auth.store'
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-vue'
+import { storeToRefs } from 'pinia'
 
 const authStore = useAuthStore()
+const { user } = storeToRefs(authStore)
 </script>
 
 <template>
   <div class="pa-4">
-    <h4 class="mb-n1">Good Morning, <span class="font-weight-regular">John Doe</span></h4>
-    <span class="text-subtitle-2 text-medium-emphasis">Project admin</span>
+    <h4 class="mb-n1">Bienvenido, <span class="font-weight-regular">{{ user.username }}</span></h4>
+    <span class="text-subtitle-2 text-medium-emphasis">{{ user.role }}</span>
 
     <v-divider></v-divider>
 
@@ -35,7 +37,7 @@ const authStore = useAuthStore()
           <template #prepend>
             <icon-mdi-logout class="ml mr-8" />
           </template>
-          <v-list-item-title class="text-subtitle-2"> Logout</v-list-item-title>
+          <v-list-item-title class="text-subtitle-2"> Cerrar sesión</v-list-item-title>
         </v-list-item>
       </v-list>
     </OverlayScrollbarsComponent>

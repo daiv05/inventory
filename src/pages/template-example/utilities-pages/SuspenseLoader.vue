@@ -1,7 +1,7 @@
 <!-- eslint-disable no-useless-escape -->
 <script setup>
 import AppBaseCard from '@/components/AppBaseCard.vue'
-import { useAppStore } from '@/stores/app'
+import { useAppStore } from '@/stores/app.store'
 const { setLoading } = useAppStore()
 import { shallowRef } from 'vue'
 

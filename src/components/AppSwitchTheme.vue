@@ -57,7 +57,7 @@
 </template>
 
 <script setup>
-import { useAppStore } from '@/stores/app'
+import { useAppStore } from '@/stores/app.store'
 import { storeToRefs } from 'pinia'
 
 const { darkMode } = storeToRefs(useAppStore())

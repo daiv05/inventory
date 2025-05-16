@@ -105,6 +105,10 @@
     "IconMdiTagSearchOutline": true,
     "IconMdiToyBrickPlus": true,
     "Slot": true,
-    "Slots": true
+    "Slots": true,
+    "authSevices": true,
+    "IconMdiSitemap": true,
+    "IconMdiBookCogOutline": true,
+    "IconMdiShapePlusOutline": true
   }
 }
